@@ -1,24 +1,55 @@
-<h1>User info</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>User info</h1>
+        <p><%= image_tag @user.get_profile_image(100,100) %></p>
+        <table class="User_info">
+          <tbody>
+            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= @user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+      <div class="edit-link">
+        <a class="btn btn-outline-dark btn-block" href="edit_user_path(users.id)">
+          <i class="fa-solid fa-user-gear"></i>
+        </a>
+      </div>
+      <h1>New book</h1>
+        <%= form_with model: @book, url: '/books', method: :post do |f| %>
+          <h4>Title</h4>
+            <%= f.text_field :title %>
+          <h4>Opinion</h4>
+            <%= f.text_area :body %>
+            <%= f.submit 'Create Book' %>
+        <% end %>
 
-<table class="User_info">
-  <tbody>
-    <tr></tr>
-    <tr>
-      <th>name</th>
-      <th>名前</th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th>自己紹介文</th>
-    </tr>
-  </tbody>
-</table>
-<div class="edit-link">
-  
-  <a class="btn btn-outline-dark btn-block" href="edit_user_path(user.id)">
-    <i class="fa-solid fa-user-gear"></i>
-  </a>
+      <div class="col-md-8　offset-md-1">
+        <h1>Books</h1>
+          <table class="mybooks">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th></th>
+              </tr>
+            <tbody>
+              <tr>
+                <th><%= image_tag @user.get_profile_image(100,100) %></th>
+                <th
+              </tr>
+            </tbody>
+            </thead>
+          </table>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-<h1>New book</h1>
-
