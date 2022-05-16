@@ -1,1 +1,24 @@
-<h1>Book detail</h1>
+<div class="container">
+ <div class="row">
+     <div class="mx-auto col-sm-12 col-md-8 col-lg-5">
+         <h1>Editng Book</h1>
+            <%= form_with model: @book do |f| %>
+             <div class="Booktitle">
+                <p>Title</p>
+                    <%= f.text_field :title %>
+            </div>
+            <div class="Bookbody">
+                <p>Opinion</p>
+                    <%= f.text_area :body %>
+            </div>
+            <div class="mx-auto">
+                <%= link_to book_path(@book.id) do %>
+                    <%= f.submit "Create Book" %>
+               <% end %>
+              </div>
+            <% end %>
+        <%= link_to "Show", book_path(@book.id) %>
+        <%= link_to "Back", books_path %>
+    </div>
+ </div>
+</div>
